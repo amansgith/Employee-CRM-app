@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<br>
+<div class="col-md-6 offset-md-3">
+    <h1 align="center">Edit Customer Record</h1><br>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <button class="btn btn-primary" type="submit">Edit Record</button>
+    </form><br>
+</div>
+
+{% endblock %}

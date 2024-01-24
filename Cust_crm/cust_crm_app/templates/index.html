@@ -2,23 +2,70 @@
 
 {% block content %}
 {% if user.is_authenticated%}
-<h1>Welcome, {{user.username}}!</h1>
+<h1 align="right">Welcome, {{user.username}}!</h1><br>
+<h2 align="center">Customer Records</h2>
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">District</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">PinCode</th>
+      <th scope="col">Country</th>
+      <th scope="col">Created At</th>
+      <th scope="col">ID</th>
+  <tbody class="table-group-divider">
+    {% if records %}
+    {% for record in records %}
+    <tr class="">
+      <td>{{ record.first_name }}</td>
+      <td>{{ record.last_name }}</td>
+      <td>{{ record.email }}</td>
+      <td>+91{{ record.phone }}</td>
+      <td>{{ record.address }}</td>
+      <td>{{ record.district }}</td>
+      <td>{{ record.city }}</td>
+      <td>{{ record.state }}</td>
+      <td>{{ record.pincode }}</td>
+      <td>{{ record.country }}</td>
+      <td>{{ record.created_at }}</td>
+      <td><a href="{% url 'record' record.id %}" style="text-decoration: none;">{{ record.id }}</a></td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+
+
 {% else %}
-<div class="col-md-6 offset-md-3">
-    <br><br>
-    <h1 align="center">Login</h1>
-    <form action="{% url 'home' %}" method="post">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6" style="padding-top: 5%;">
+      <h1>Hi and welcome to the customer Relationship Management App</h1>
+    </div>
+    <div class="col-lg-6" style="padding-top: 5%;">
+      <h1 align="center">Login</h1>
+      <form action="{% url 'home' %}" method="post">
         {% csrf_token %}
         <form><br>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="username" name="username" required>
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control" placeholder="password" name="password" required>
-            </div><br>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-    </form>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="username" name="username" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" placeholder="password" name="password" required>
+          </div><br>
+          <button type="submit" class="btn btn-primary ">Log In</button>
+          <a href="{% url 'register' %}" class="btn btn-primary" align="right" style="margin-left:63%">Register Now</a>
+        </form>
+      </form>
+    </div>
+  </div>
 </div>
 {% endif %}
 {% endblock %}
+

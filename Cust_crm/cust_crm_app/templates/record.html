@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<h1 align="center"> Here are Your Details</h1>
+<div class="" align="center">
+    <div class="card" style="width: 50%;">
+        <div class="card-body">
+            <h5 class="card-title fs-4" align="center"><strong>{{customer_record.first_name}}
+                    {{customer_record.last_name}}</strong></h5>
+            <hr>
+            <p class="card-text fs-5" align="left">
+                <strong>Email: </strong>{{ customer_record.email }}<br>
+                <strong>Phone: </strong>+91{{ customer_record.phone }}<br>
+                <strong>Address: </strong>{{ customer_record.address }}<br>
+                <strong>District: </strong>{{ customer_record.district }}<br>
+                <strong>City: </strong>{{ customer_record.city }}<br>
+                <strong>State: </strong>{{ customer_record.state }}<br>
+                <strong>Pin Code: </strong>{{ customer_record.pincode }}<br>
+                <strong>Country: </strong>{{ customer_record.country }}<br>
+                <strong>Created At: </strong>{{ customer_record.created_at }}<br>
+            </p>
+        </div>
+        
+    </div><br>
+    <a href="{%  url 'home' %}" class="btn btn-secondary">back</a>
+    <a href="{%  url 'edit_record' customer_record.id %}" class="btn btn-warning mx-2">Edit Record</a>
+    <a href="{%  url 'del_record' customer_record.id %}" class="btn btn-danger">Delete Record</a>
+
+</div>
+<br>
+{% endblock %}
