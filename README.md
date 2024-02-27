@@ -1,8 +1,8 @@
 # Ecommerce-CRM-app
-An App made with Python and Django to manage Customer Details
+A Web App made with Python, Django and MySQL to manage Customer Details
 
-The web app allows you to Perform all the CRUD Operations through the website directly
-It also uses Django's inbuilt authentication system for SignUp and Login
+The web app allows you to Perform all the CRUD Operations through the website directly.
+It also uses Django's inbuilt authentication system for SignUp and Login.
 It uses MySQL Database to Store and manage all the Customer Details.
 
 ## Prerequisites
