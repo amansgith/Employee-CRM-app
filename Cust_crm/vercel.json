@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "Cust_crm/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "Cust_crm/wsgi.py"
+      }
+    ]
+}
