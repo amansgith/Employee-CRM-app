@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cust_crm_app',
+    'bootstrapsidebar',
 ]
 
 MIDDLEWARE = [
